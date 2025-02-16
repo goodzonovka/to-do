@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-weight: 400;
+}
+
+ul {
+    list-style: none;
+}
+
+body {
+    margin: 0;
+    font-family: "Roboto", sans-serif;
+    color: #686A76;
+    background-color: #384152;
+}
+
+h1 {
+    margin-bottom: 30px;
+    color: #fff;
+}
+
+h2 {
+    font-size: 28px;
+    color: #fff;
+}
+
+h4 {
+    margin-bottom: 16px;
+}
+
+input, textarea, button {
+    font: inherit;
+    background-color: transparent;
+    border: none;
+    outline: none;
+
+    &:-webkit-autofill {
+        background-color: transparent !important;
+        color: inherit !important;
+        -webkit-box-shadow: 0 0 0px 1000px #f0f0f0 inset !important;
+    }
+
+    &:-webkit-autofill {
+        background-color: transparent !important;
+        color: inherit !important;
+    }
+}
+
+.form__input,
+.form__textarea,
+.form__btn {
+    width: 100%;
+    padding: 16px;
+    border-radius: 8px;
+    font-size: 18px;
+    color: #fff;
+    background-color: #1e1f22;
+}
+
+.form__input {
+    height: 50px;
+}
+
+.form__btn {
+    transition: background-color .3s ease;
+
+    &:hover {
+        background-color: #151619;
+    }
+
+    &:disabled {
+        pointer-events: none;
+        opacity: .6;
+    }
+
+    &:has(.pi) {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        column-gap: 12px;
+    }
+}
+
+textarea {
+    height: 140px;
+    resize: none;
+}
+
+.form__group:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+button {
+    cursor: pointer;
+    user-select: none;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+    transition: color .3s ease;
+
+    &:hover {
+        color: var(--red-700);
+    }
+}
+
+.btn-link {
+    color: #fff;
+    transition: color .3s ease;
+
+    &:hover {
+        color: var(--red-700);
+    }
+}
+
+.p-radiobutton-checked .p-radiobutton-box {
+    border-color: var(--red-700) !important;
+    background: var(--red-700) !important;
+}
