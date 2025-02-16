@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 import { useRouter } from 'vue-router'
-import { getFirestore, setDoc, doc } from 'firebase/firestore'
+import { getFirestore, setDoc, doc, Timestamp } from 'firebase/firestore'
 import type { ITask } from '@/interfaces'
 import { v4 as uuidv4 } from 'uuid'
 import { useUserStore } from '@/stores/user'
@@ -27,7 +27,7 @@ const addNewTask = async (): Promise<void> => {
             text: text.value,
             time: time.value,
             status: status.value,
-            createdAt: new Date(),
+            createdAt: Timestamp.now(),
         }
 
         if (!userStore.userId) {
