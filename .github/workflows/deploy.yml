@@ -21,8 +21,9 @@ jobs:
 
       # Запускаем сервер на хостинге после деплоя
       - run: ssh -p 22 -i $HOME/.ssh/key -o StrictHostKeyChecking=no fg573435@fg573435.ftp.tools << 'EOF'
-          cd /home/fg573435/goodzonovka.com/testing
-          npm install --production
-          npm run build
-          HOST=127.0.0.1 PORT=3000 npm run start &
-          EOF
+             cd /home/fg573435/goodzonovka.com/testing || exit
+             npm install --production
+             npm run build
+             HOST=127.0.0.1 PORT=3000 npm run start
+             EOF
+
