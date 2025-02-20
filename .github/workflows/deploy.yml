@@ -16,13 +16,9 @@ jobs:
       - run: echo "${{ secrets.SSH_PRIVATE_KEY }}" > "$HOME/.ssh/key"
       - run: chmod 600 "$HOME/.ssh/key"
 
-      # Деплой через rsync 2
-      - run: rsync -e "ssh -p 22 -i $HOME/.ssh/key -o StrictHostKeyChecking=no" --archive --compress --delete . fg573435@fg573435.ftp.tools:/home/fg573435/goodzonovka.com/testing
       - run: npm ci
       - run: npm run build
-      # Запускаем сервер на хостинге после деплоя
-      - run: ssh -p 22 -i $HOME/.ssh/key -o StrictHostKeyChecking=no fg573435@fg573435.ftp.tools << 'EOF'
-             cd /home/fg573435/goodzonovka.com/testing || exit
-             HOST=127.0.0.1 PORT=3000 npm run start
-             EOF
 
+      # Деплой через rsync
+      - run: rsync -e "ssh -p 22 -i $HOME/.ssh/key -o StrictHostKeyChecking=no" --archive --compress --delete . fg573435@fg573435.ftp.tools:/home/fg573435/goodzonovka.com/testing
+      - run: npm run start
