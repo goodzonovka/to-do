@@ -3,7 +3,6 @@ import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import vueDevTools from 'vite-plugin-vue-devtools';
 
-// https://vite.dev/config/
 export default defineConfig({
     plugins: [
         vue(),
@@ -15,9 +14,14 @@ export default defineConfig({
         },
     },
     server: {
-        host: process.env.HOST || '127.0.0.1', // Проксирование требует 127.0.0.1
-        port: process.env.PORT ? Number(process.env.PORT) : 3000, // Проксирование через порт 3000
-        strictPort: true, // Гарантирует, что сервер запускается на заданном порту
-        allowedHosts: ['testing.goodzonovka.com'], // Добавляем разрешенный хост
+        host: process.env.HOST || '127.0.0.1',
+        port: process.env.PORT ? Number(process.env.PORT) : 3000,
+        strictPort: true,
+        allowedHosts: ['testing.goodzonovka.com'],
     },
+    preview: {
+        host: '127.0.0.1', // Обязательно указываем хост
+        port: 3000, // Используем порт 3000
+        strictPort: true,
+    }
 });
