@@ -27,7 +27,7 @@ jobs:
       - run: |
           ssh -p 22 -i $HOME/.ssh/key -o StrictHostKeyChecking=no fg573435@fg573435.ftp.tools << 'EOF'
           cd /home/fg573435/goodzonovka.com/testing
-          npm install --production
+          npm install
           npm run build
-          nohup npm run start > output.log 2>&1 &
+          nohup npx vite preview --port=3000 --host=127.1.4.138 > output.log 2>&1 &
           EOF
