@@ -20,9 +20,10 @@ jobs:
       - run: npm run build
 
       # Деплой через rsync
-      - run: ssh -p 22 -i $HOME/.ssh/key -o StrictHostKeyChecking=no fg573435@fg573435.ftp.tools << 'EOF'
+      - run: |
+          ssh -p 22 -i $HOME/.ssh/key -o StrictHostKeyChecking=no fg573435@fg573435.ftp.tools << 'EOF'
           cd /home/fg573435/goodzonovka.com/testing
           npm install --production
           npm run build
           nohup npm run preview > output.log 2>&1 &
-        EOF
+          EOF
