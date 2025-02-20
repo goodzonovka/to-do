@@ -10,7 +10,6 @@ const userStore = useUserStore()
 const db = getFirestore()
 const router = useRouter()
 
-const test4;
 const title = ref<string>('')
 const text = ref<string>('')
 const time = ref<string>('')
