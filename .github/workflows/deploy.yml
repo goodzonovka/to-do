@@ -21,12 +21,12 @@ jobs:
       - run: npm run build
 
       # Деплой через rsync
-      - run: rsync -e "ssh -p 22 -i $HOME/.ssh/key -o StrictHostKeyChecking=no" --archive --compress --delete . fg573435@fg573435.ftp.tools:/home/fg573435/goodzonovka.com/testing
+      - run: rsync -e "ssh -p 22 -i $HOME/.ssh/key -o StrictHostKeyChecking=no" --archive --compress --delete . fg573435@fg573435.ftp.tools:/home/fg573435/goodzonovka.com/to-do
 
       # Запуск сервера в фоновом режиме
       - run: |
           ssh -p 22 -i $HOME/.ssh/key -o StrictHostKeyChecking=no fg573435@fg573435.ftp.tools << 'EOF'
-          cd /home/fg573435/goodzonovka.com/testing
+          cd /home/fg573435/goodzonovka.com/to-do
           npm install
           npm run build
           nohup npx vite preview --port=3000 --host=127.1.4.138 > output.log 2>&1 &
